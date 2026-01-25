@@ -45,6 +45,11 @@ async function createUser(user){
 }
 
 async function login(user){
+
+    if(!user.email || !user.password){
+        throw new Error('Password and Email required');
+    }
+
     const users = await readDb();
     const authUser = users.find(u => u.email == user.email && u.password == user.password);
     if(!authUser){
