@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
 </head>
-<body>
-    <h2>Teste</h2>
+<body>    
+    <div id="todoList">
+        <h2>Tarefas feitas<button style="margin-left: 10px;" id="addTask">+</button></h2> 
+        <ul id="doneList"></ul>
+        <hr>
+        <h2>Tarefas não feitas</h2>
+        <ul id="undoneList"></ul>
+    </div>
+    <script src="./helpers/urlHelpers.js"></script>
+    <script src="./helpers/checkAuth.js"></script>
+    <script src="./helpers/setNavbar.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
