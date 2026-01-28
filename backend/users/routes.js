@@ -11,16 +11,12 @@ router.get('/users', auth, async (req, res)=>{
 
 router.post('/create-account', async (req, res)=>{
     const user = req.body;
-    if(!user){
-        return res.status(400).send('User information required');
-    }
 
     try{
         await createUser(user);
-        return res.status(201).send({Created_user: user})
+        return res.status(201).send({success: true, created_user: user})
     }catch(e){
-        console.log('Error: ', e.message)
-        return res.status(406).send({Error: e.message});
+        return res.status(406).send({success: false, error: e.message});
     }
 })
 

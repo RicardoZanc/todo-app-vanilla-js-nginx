@@ -17,9 +17,17 @@ async function getUsers(){
 }
 
 async function createUser(user){
+    console.log(user)
+    if(!user){
+        throw new Error('User information required');
+    }
 
-    if(!user.email || !user.password || !user.name){
+    if(!user.email || !user.password || !user.confirmPassword || !user.name){
         throw new Error('Must have name, email and password')
+    }
+
+    if(user.password != user.confirmPassword){
+        throw new Error('Paswords are not equal')
     }
 
     const existingUser = await userExists(user.email);
